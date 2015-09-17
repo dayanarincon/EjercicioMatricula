@@ -29,9 +29,10 @@ $Selccion= "<strong>Seleccione la clase: </strong>";
 			$arrRecorrer=$arrayprimA;
 
 			if ($curso== 'Danzas') {
-				$total= $total+($valorbase+)
+				$total= $total+($valorbase*0.2);
+				echo $total;
 
-			}
+			}else if ()
 
 
 		}else if($arrayprimero == 'B'){
