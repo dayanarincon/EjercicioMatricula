@@ -15,6 +15,8 @@
 		Nombre <input type="text" name="nombre"><br/><br/>
 		Apellido <input type="text" name ="apellido"><br/><br/>
 		Precio Base <input type="text" name="valorbase"><br/><br/>
+		<br/><br/>
+		<input type="submit" value="enviar">
 
 		<h3>Seleccione el curso: </h3>
 
@@ -26,14 +28,16 @@
 		</select>	
 		<div id="resultado"></div>
 		</form>
+		<br></br>
 
-		if (select == "Primero"){
 		<form action="#">
 		<select id="seleccionPrimeroA" name ="seleccioneMateria"></select>
 			<option value="Seleccione">Seleccione:</option>
 			<option value="Danzas">Danzas</option>
 			<option value="Teatro">Teatro</option>
 			<option value="Dibujo">Dibujo</option>
+		</select>
+		<div id="resultado"></div>
 		</form>
 
 		<form action="#">
@@ -41,7 +45,8 @@
 			<option value="Seleccione">Seleccione:</option>
 			<option value="Danzas">Danzas</option>
 			<option value="Musica">Musica</option>
-
+		</select>
+		<div id="resultado"></div>
 		</form>
 
 		<form action="#">
@@ -50,23 +55,30 @@
 			<option value="Teatro">Teatro</option>
 			<option value="Dibujo">Dibujo</option>
 			<option value="Musica">Musica</option>
+		</select>
+		<div id="resultado"></div>
 		</form>
+
+
+
+
 
 		<form action="#">
 		<select id="seleccionSegundoA" name ="seleccioneMateria"></select>
 			<option value="Seleccione">Seleccione:</option>
 			<option value="Teatro">Teatro</option>
 			<option value="Dibujo">Dibujo</option>
+		</select>
+		<div id="resultado"></div>
 		</form>
-		}
-
-
-
+		
 		<form action="#">
 		<select id="seleccionSegundoC" name ="seleccioneMateria"></select>
 			<option value="seleccione">Seleccione:</option>
 			<option value="Teatro">Teatro</option>
 			<option value="Musica">Musica</option>
+			</select>
+		<div id="resultado"></div>
 		</form>
 
 
@@ -95,6 +107,23 @@
 					method: "POST",
 					url: "matricula.php",
 					data:{ primero:primeroValor}
+				})
+
+				.done(function(msg){
+					$("#resultado").html(msg);
+				})
+			});
+
+		</script>
+
+		<script>
+
+			$("#seleccioneMateria").change(function()){
+				var segundoValor = $("#seleccioneMateria").val();
+				$.ajax({
+					method: "POST",
+					url: "matricula.php",
+					data:{ segundo:segundoValor}
 				})
 
 				.done(function(msg){
